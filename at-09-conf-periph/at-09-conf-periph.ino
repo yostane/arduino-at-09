@@ -1,8 +1,5 @@
 #include <SoftwareSerial.h>
 SoftwareSerial mySerial(2, 3); // RX, TX
-int PIN_EN_OUT = 4;
-int PIN_STATE_IN = 5;
-
 
 void setup() {
   // put your setup code here, to run once:
@@ -35,22 +32,6 @@ void sendCommand(const char * command){
   Serial.println("Reply end");
 }
 
-void readSerial(){
-  char reply[1000];
-  int i = 0;
-  while (mySerial.available()) {
-    reply[i] = mySerial.read();
-    i += 1;
-  }
-  //end the string
-  reply[i] = '\0';
-  if(strlen(reply) > 0){
-    Serial.print(reply);
-    Serial.println("Read some data");
-  }
-}
-
 void loop() {
-  readSerial();
-  delay(500);
+
 }
