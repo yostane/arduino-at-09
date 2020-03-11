@@ -7,11 +7,10 @@ void setup() {
   Serial.begin(9600);
 
   mySerial.println("AT");
-  while (mySerial.available()) {
-    Serial.write(mySerial.read());
-  }
 }
 
 void loop() {
-  
+  while (mySerial.available()) {
+    Serial.write(mySerial.read());
+  }
 }
